@@ -4010,6 +4010,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 6888152883485895845, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 481a5e8665f31bc4e874893cc1bfd990, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
 --- !u!224 &2139455767 stripped
@@ -4071,11 +4075,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4470314789466561566, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 208.787
+      value: 208
       objectReference: {fileID: 0}
     - target: {fileID: 4470314789466561566, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65.481
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 4470314789466561566, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4164,6 +4168,14 @@ PrefabInstance:
     - target: {fileID: 4470314789635286831, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
       propertyPath: m_text
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888152883485895845, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888152883485895845, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 375e8883919ff324e87e4755222aa8f3, type: 3}
