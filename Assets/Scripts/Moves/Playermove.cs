@@ -9,9 +9,9 @@ public class Playermove : MonoBehaviour
     public KeyCode jump;
     public Rigidbody2D playerrigid;
 
-    public float speed;
-    public Vector2 mov;
-
+    public Vector2 speed;
+    public Vector2 desacelaration;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +22,40 @@ public class Playermove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(right))
-            //playerrigid.MovePosition(playerrigid.position + mov * Time.deltaTime);
-            playerrigid.velocity = new Vector2(speed, playerrigid.velocity.y);
-        else if (Input.GetKey(left))
-            //playerrigid.MovePosition(playerrigid.position - mov * Time.deltaTime); ;
-            playerrigid.velocity = new Vector2(-speed, playerrigid.velocity.y);
+        Moviment();
+        Jumpmov();
+        breakmove();
+        
 
     }
+
+    private void Moviment()
+    {
+
+        if (Input.GetKey(right))
+            //playerrigid.MovePosition(playerrigid.position + mov * Time.deltaTime);
+            playerrigid.velocity = new Vector2(speed.x, playerrigid.velocity.y);
+        else if (Input.GetKey(left))
+            //playerrigid.MovePosition(playerrigid.position - mov * Time.deltaTime); ;
+            playerrigid.velocity = new Vector2(-speed.x, playerrigid.velocity.y);
+    }
+    
+    private void Jumpmov()
+    {
+        if (Input.GetKeyDown(jump))
+            playerrigid.velocity = new Vector2(playerrigid.velocity.x, speed.y);
+    }
+
+    private void breakmove()
+    {
+        if (playerrigid.velocity.x > 0)
+            playerrigid.velocity = new Vector2((playerrigid.velocity.x - desacelaration.x), playerrigid.velocity.y);
+
+        else if(playerrigid.velocity.x < 0)
+            playerrigid.velocity = new Vector2((playerrigid.velocity.x + desacelaration.x), playerrigid.velocity.y);
+
+           
+    }
+
+    
 }
