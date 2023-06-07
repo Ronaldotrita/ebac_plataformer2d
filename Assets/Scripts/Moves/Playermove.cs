@@ -7,10 +7,12 @@ public class Playermove : MonoBehaviour
     public KeyCode right;
     public KeyCode left;
     public KeyCode jump;
+    public KeyCode run;
     public Rigidbody2D playerrigid;
 
     public Vector2 speed;
     public Vector2 desacelaration;
+    
     
 
     // Start is called before the first frame update
@@ -25,7 +27,7 @@ public class Playermove : MonoBehaviour
         Moviment();
         Jumpmov();
         breakmove();
-        
+        running();
 
     }
 
@@ -57,5 +59,11 @@ public class Playermove : MonoBehaviour
            
     }
 
+    private void running()
+    {
+        if (Input.GetKey(run))
+           playerrigid.velocity = new Vector2((playerrigid.velocity.x * 2), playerrigid.velocity.y);
+           
+    }
     
 }

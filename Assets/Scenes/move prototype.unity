@@ -356,6 +356,7 @@ MonoBehaviour:
   right: 100
   left: 97
   jump: 32
+  run: 103
   playerrigid: {fileID: 414015294}
   speed: {x: 10, y: 15}
   desacelaration: {x: 0.05, y: 0}
