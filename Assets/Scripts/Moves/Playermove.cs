@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Playermove : MonoBehaviour
 {
+    [Header("Botoes")]
+
     public KeyCode right;
     public KeyCode left;
     public KeyCode jump;
     public KeyCode run;
+
+    [Header("Vetor")]
     public Rigidbody2D playerrigid;
 
+    [Header("Velocidade")]
     public Vector2 speed;
     public Vector2 desacelaration;
     
@@ -46,6 +51,7 @@ public class Playermove : MonoBehaviour
     {
         if (Input.GetKeyDown(jump))
             playerrigid.velocity = new Vector2(playerrigid.velocity.x, speed.y);
+            
     }
 
     private void breakmove()
