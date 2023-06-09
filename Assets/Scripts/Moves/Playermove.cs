@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class Playermove : MonoBehaviour
 {
-    [Header("Botoes")]
+    [Header("BOTOES")]
 
     public KeyCode right;
     public KeyCode left;
     public KeyCode jump;
     public KeyCode run;
 
-    [Header("Vetor")]
+    [Header("VETOR")]
     public Rigidbody2D playerrigid;
 
-    [Header("Velocidade")]
+    [Header("VELOCIDADE")]
     public Vector2 speed;
     public Vector2 desacelaration;
-    
-    
+
+    [Header("ANIMATION")]
+
+    public Animator jumpanimation;
+
+
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        jumpanimation.SetBool("Jump", false);
+    }
     void Start()
     {
         
@@ -33,6 +42,7 @@ public class Playermove : MonoBehaviour
         Jumpmov();
         breakmove();
         running();
+        
 
     }
 
@@ -46,13 +56,19 @@ public class Playermove : MonoBehaviour
             //playerrigid.MovePosition(playerrigid.position - mov * Time.deltaTime); ;
             playerrigid.velocity = new Vector2(-speed.x, playerrigid.velocity.y);
     }
-    
+
     private void Jumpmov()
     {
         if (Input.GetKeyDown(jump))
+
             playerrigid.velocity = new Vector2(playerrigid.velocity.x, speed.y);
-            
+            jumpanimation.SetBool("Jump", true);
+
+        
+
+
     }
+
 
     private void breakmove()
     {
@@ -71,5 +87,10 @@ public class Playermove : MonoBehaviour
            playerrigid.velocity = new Vector2((playerrigid.velocity.x * 2), playerrigid.velocity.y);
            
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        jumpanimation.SetBool("Jump", false);
+    }
+
 }
