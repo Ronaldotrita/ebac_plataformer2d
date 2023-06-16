@@ -60,9 +60,11 @@ public class Playermove : MonoBehaviour
     private void Jumpmov()
     {
         if (Input.GetKeyDown(jump))
+        {
 
             playerrigid.velocity = new Vector2(playerrigid.velocity.x, speed.y);
             jumpanimation.SetBool("Jump", true);
+        }
 
         
 
