@@ -21,6 +21,7 @@ public class Playermove : MonoBehaviour
     [Header("ANIMATION")]
 
     public Animator jumpanimation;
+    public Animator runanimation;
 
 
 
@@ -50,11 +51,22 @@ public class Playermove : MonoBehaviour
     {
 
         if (Input.GetKey(right))
+        {
             //playerrigid.MovePosition(playerrigid.position + mov * Time.deltaTime);
             playerrigid.velocity = new Vector2(speed.x, playerrigid.velocity.y);
+            runanimation.SetBool("Run", true);
+            playerrigid.transform.localScale = new Vector3(1, 1, 1);
+
+        }
         else if (Input.GetKey(left))
+        { 
             //playerrigid.MovePosition(playerrigid.position - mov * Time.deltaTime); ;
             playerrigid.velocity = new Vector2(-speed.x, playerrigid.velocity.y);
+            runanimation.SetBool("Run", true);
+            playerrigid.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+            runanimation.SetBool("Run", false);
     }
 
     private void Jumpmov()
@@ -87,6 +99,8 @@ public class Playermove : MonoBehaviour
     {
         if (Input.GetKey(run))
            playerrigid.velocity = new Vector2((playerrigid.velocity.x * 2), playerrigid.velocity.y);
+        runanimation.speed = 2;
+           
            
     }
 
