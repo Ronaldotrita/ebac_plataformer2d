@@ -98,10 +98,13 @@ public class Playermove : MonoBehaviour
     private void running()
     {
         if (Input.GetKey(run))
-           playerrigid.velocity = new Vector2((playerrigid.velocity.x * 2), playerrigid.velocity.y);
-        runanimation.speed = 2;
+        {
+            playerrigid.velocity = new Vector2((playerrigid.velocity.x * 2), playerrigid.velocity.y);
+            runanimation.speed = 2;
+        }
            
-           
+        else
+            runanimation.speed = 1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
